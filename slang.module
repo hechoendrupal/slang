@@ -3,14 +3,14 @@
 /**
  * hook_menu
  */
-function say_menu(){
+function slang_menu(){
 
   $items = array();
   
   $items['/admin/config/slang'] = array(
-    'title' => 'Say Settings',
-    'description' => 'Say settings.',
-    'route_name' => 'say_settings_form',
+    'title' => 'Slang Settings',
+    'description' => 'Slang settings.',
+    'route_name' => 'slang_settings_form',
   );
 
   return $items;

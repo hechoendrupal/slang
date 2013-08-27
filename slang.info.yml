@@ -1,6 +1,6 @@
-name: Say
+name: Slang
 type: module
-description: 'Say... '
+description: 'Slang'
 package: Sample
 core: 8.x
 configure: admin/config/slang
