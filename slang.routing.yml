@@ -1,0 +1,6 @@
+slang_settings_form:
+  pattern: '/admin/config/slang'
+  defaults:
+    _form: '\Drupal\slang\Form\SlangSettingsForm'
+  requirements:
+    _permission: 'administer settings'

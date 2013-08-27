@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * hook_menu
+ */
+function say_menu(){
+
+  $items = array();
+  
+  $items['/admin/config/slang'] = array(
+    'title' => 'Say Settings',
+    'description' => 'Say settings.',
+    'route_name' => 'say_settings_form',
+  );
+
+  return $items;
+}
+
