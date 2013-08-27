@@ -4,3 +4,10 @@ slang_settings_form:
     _form: '\Drupal\slang\Form\SlangSettingsForm'
   requirements:
     _permission: 'administer settings'
+
+slang_hello_name:
+  pattern: '/slang/hello/{name}'
+  defaults: 
+    _controller: '\Drupal\slang\Controller\DefaultController::helloAction'
+  requirements:
+    _permission: "view content"
