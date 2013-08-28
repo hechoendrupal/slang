@@ -2,17 +2,45 @@
 
 namespace Drupal\slang\Controller;
 
-use Drupa\Core\Controller\ControllerInterface;
+use Drupal\Core\Controller\ControllerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class DefaultController extends ControllerInterface{
+/**
+ * Slang Default Controller
+ */
+class DefaultController implements ControllerInterface {
+  
+ /**
+  * @var \TwigEnvironment
+  */
+  protected $twig;
 
-  public function nameAction() {
+ /**
+   * Constructor
+   *
+   * @param \TwigEnvironment $twig
+   */
+  public function __construct(\TwigEnvironment $twig) {
+    $this->twig = $twig;
+  }
 
-    $name = 'nombre';
-    $twig = $this->container->get('twig');
-    $path = $this->templateDir . 'page.html.twig';
+ /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static($container->get('twig'));
+  }
+
+  /**
+   * helloAction
+   *
+   * @param String $name
+   */
+  public function helloAction($name) {
+    $twig = $this->twig;
+    $path = drupal_get_path('module', 'slang') . '/templates/example.html.twig';
     $template = $twig->loadTemplate($path);
-    drupal_set_title("Route Parameter Example");
+    drupal_set_title("Slang demo");
     return $template->render(array('name' => $name));
   }
 
