@@ -5,11 +5,8 @@ namespace Drupal\slang\Form;
 use Drupal\system\SystemConfigFormBase;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Config\Context\ContextInterface;
-use Drupal\Core\Path\AliasManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Component\Utility\String;
 use Drupal\Component\Utility\Url;
-
 
 class SlangSettingsForm extends SystemConfigFormBase {
 
@@ -47,12 +44,22 @@ class SlangSettingsForm extends SystemConfigFormBase {
     $config = $this->configFactory->get('slang.settings');
 
     $form = array();
+
     $form['url_end_point'] = array(
       '#type' => 'textfield',
       '#title' => t('End Point'),
       '#default_value' => $config->get('url_end_point'),
       '#description' => t('URL end point'),
     );
+
+    $form['time_out'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Timeout limit'),
+      '#default_value' => $config->get('time_out'),
+      '#description' => t('time in seconds'),
+    );
+
+
     $form['#submit'][] = array($this, 'submitForm');
 
     return parent::buildForm($form, $form_state);
@@ -68,6 +75,9 @@ class SlangSettingsForm extends SystemConfigFormBase {
       form_set_error('url_end_point', t('Is not a valid URL'));
     }
 
+    if (!intval($form_state['values']['time_out'], 10))
+      form_set_error('time_out', t('The request token lifetime must be a non-zero integer value.'));
+
   }
 
   /**
@@ -77,6 +87,7 @@ class SlangSettingsForm extends SystemConfigFormBase {
     parent::submitForm($form, $form_state);
     $config = $this->configFactory->get('slang.settings')
       ->set('url_end_point',$form_state['values']['url_end_point'])
+      ->set('time_out',$form_state['values']['time_out'])
     ->save();
   }
 
