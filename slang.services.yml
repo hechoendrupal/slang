@@ -1,0 +1,13 @@
+parameters:
+  slang.phrases:
+    costa_rica:
+      - "Knowing yourself is the beginning of all wisdom."
+      - "What is a friend? A single soul dwelling in two bodies."
+      - "It is the mark of an educated mind to be able to entertain a thought without accepting it."
+services:
+  slang.quotecollection:
+    class: Drupal\slang\Services\Slang
+    arguments:
+      - %slang.phrases%
+    calls:
+      - [setCountry, ["costa_rica"]]
