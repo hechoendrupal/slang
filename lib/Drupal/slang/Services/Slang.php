@@ -29,6 +29,14 @@ class Slang {
   }
 
   /**
+   * [getCountrys description]
+   * @return [type] [description]
+   */
+  public function getCountrys(){
+    return $this->quotes;
+  }
+
+  /**
    * [get description]
    * @param  [type] $index [description]
    * @return [type]        [description]
@@ -46,9 +54,9 @@ class Slang {
    * get random key
    * @return string slang phrase
    */
-  public function getRandom() {
-    $max = count($this->quotes) - 1;
+  public function getRandom($country) {
+    $max = count($this->quotes[$country]) - 1;
     $index = floor(rand(0, $max));
-    return $this->quotes[$index];
+    return $this->quotes[$country][$index];
   }
 }

@@ -11,3 +11,10 @@ slang_hello_name:
     _controller: '\Drupal\slang\Controller\DefaultController::helloAction'
   requirements:
     _permission: "view content"
+
+slang_phrases:
+  pattern: '/slang/{country}'
+  defaults:
+    _controller: '\Drupal\slang\Controller\DefaultController::slangAction'
+  requirements:
+    _permission: 'view content'

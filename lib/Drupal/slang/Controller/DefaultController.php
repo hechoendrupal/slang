@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Drupal\slang\Services\Slang;
+use Drupal\slang\Services\Slang as SlangService;
 
 /**
  * Slang Default Controller
@@ -29,7 +29,7 @@ class DefaultController implements ContainerInjectionInterface {
    * @param Drupal\slang\Services\Slang
    * @param \TwigEnvironment $twig
    */
-  public function __construct(Slang $slang,\TwigEnvironment $twig) {
+  public function __construct(SlangService $slang,\TwigEnvironment $twig) {
     $this->twig = $twig;
     $this->slang = $slang;
   }
@@ -39,7 +39,7 @@ class DefaultController implements ContainerInjectionInterface {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('slang.quotecollection'),
+      $container->get('slang.phrase_collection'),
       $container->get('twig')
     );
   }
@@ -57,13 +57,13 @@ class DefaultController implements ContainerInjectionInterface {
     return $template->render(array('name' => $name));
   }
 
-
-  public function slangAction() {
+  public function slangAction($country) {
+    $rand = $this->slang->getRandom($country);
     $twig = $this->twig;
     $path = drupal_get_path('module', 'slang') . '/templates/slang.html.twig';
     $template = $twig->loadTemplate($path);
-    drupal_set_title("slang phrases");
-    return $template->render(array('name' => $name));
+    drupal_set_title("slang phrase");
+    return $template->render(array('phrase' => $rand));
   }
 
 }
