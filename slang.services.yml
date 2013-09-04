@@ -21,4 +21,4 @@ services:
   slang.twig.title:
     class: Drupal\slang\Plugin\Twig\TwigTitle
     tags:
-      - { name:twig.extension }
+      - { name:twig.extension }  
