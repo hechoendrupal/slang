@@ -18,3 +18,7 @@ services:
       - %slang.phrases%
     calls:
       - [setCountry, ["costa_rica"]]
+  slang.twig.title:
+    class: Drupal\slang\Plugin\Twig\TwigTitle
+    tags:
+      - { name:twig.extension }

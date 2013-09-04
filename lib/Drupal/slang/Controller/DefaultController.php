@@ -53,8 +53,10 @@ class DefaultController implements ContainerInjectionInterface {
     $twig = $this->twig;
     $path = drupal_get_path('module', 'slang') . '/templates/example.html.twig';
     $template = $twig->loadTemplate($path);
-    drupal_set_title("Slang demo");
-    return $template->render(array('name' => $name));
+    return $template->render(array(
+      'name' => $name,
+      'title' => 'Slang Demo'
+    ));
   }
 
   public function slangAction($country) {
