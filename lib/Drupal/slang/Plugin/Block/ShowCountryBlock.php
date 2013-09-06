@@ -20,9 +20,8 @@ use Drupal\slang\Services\Slang;
 class ShowCountryBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * [__construct description]
    * @param array  $configuration     [description]
-   * @param [type] $plugin_id         [description]
+   * @param string $plugin_id         [description]
    * @param array  $plugin_definition [description]
    * @param Slang  $slang             [description]
    */
@@ -61,13 +60,12 @@ class ShowCountryBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#theme' => 'select',
       '#prefix' => '<p> The country list</p>',
       '#attributes' => array(
-        'onchange' => 'location.replace("/wawa");return false;'
+        'onchange' => ''
       ),
     );
 
     $build['#options'][] = '- Select -';
-    $build['#options'][] = $this->slang->getCountry();
-    $build['#options'][] = $this->slang->getCountry() . '2';
+    $build['#options'] = $this->slang->getCountrys();
 
     return $build;
   }

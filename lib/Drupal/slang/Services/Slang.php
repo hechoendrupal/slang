@@ -8,8 +8,8 @@ class Slang {
 
   protected $country;
 
-  public function __construct($quotes) {
-    $this->quotes = $quotes;
+  public function __construct($phrases) {
+    $this->quotes = $phrases;
   }
 
   /**
@@ -33,7 +33,8 @@ class Slang {
    * @return [type] [description]
    */
   public function getCountrys(){
-    return $this->quotes;
+    return array_keys($this->quotes);
+
   }
 
   /**
@@ -42,8 +43,8 @@ class Slang {
    * @return [type]        [description]
    */
   public function get($index) {
-    if(isset($this->quotes[$index])){
-      return $this->quotes[$index];
+    if(isset($this->quotes[$this->getCountry()][$index])){
+      return $this->quotes[$this->getCountry()][$index];
     }
     else{
       return $this->getRandom();
@@ -55,8 +56,8 @@ class Slang {
    * @return string slang phrase
    */
   public function getRandom($country) {
-    $max = count($this->quotes[$country]) - 1;
+    $max = count($this->quotes[$this->getCountry()]) - 1;
     $index = floor(rand(0, $max));
-    return $this->quotes[$country][$index];
+    return $this->quotes[$this->getCountry()][$index];
   }
 }

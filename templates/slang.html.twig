@@ -1,4 +1,7 @@
 {% extends '/modules/slang/templates/base.html.twig' %}
 {% block basic %}
-<h1>{{ phrase }}!</h1>
+
+	{{ drupal_title( title ) }}
+	<h1>{{ phrase }}!</h1>
+
 {% endblock %}
