@@ -9,8 +9,10 @@ parameters:
       - "Bacán"
       - "Piola"
       - "Esto es Jauja"
-    san_francisco:
-      - "HELLA"
+    usa:
+      - "We want you"
+    mexico:
+      - "Viva México cabrones"
 services:
   slang.phrase_collection:
     class: Drupal\slang\Services\Slang
