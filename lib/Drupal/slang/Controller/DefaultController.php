@@ -43,20 +43,10 @@ class DefaultController implements ContainerInjectionInterface {
   }
 
   /**
-   * helloAction
-   *
-   * @param String $name
+   * Show slang phrase
+   * @param  string $country get country
+   * @return \TwigEnvironment return twig template
    */
-  public function helloAction($name){
-    $twig = $this->twig;
-    $template = $twig->loadTemplate('slang::example.html.twig');
-
-    return $template->render(array(
-      'name' => $name,
-      'title' => 'Slang Demo'
-    ));
-  }
-
   public function slangAction($country) {
 
     // TODO:

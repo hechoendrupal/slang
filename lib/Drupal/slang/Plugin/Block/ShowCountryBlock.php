@@ -20,10 +20,10 @@ use Drupal\slang\Services\Slang;
 class ShowCountryBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * @param array  $configuration     [description]
-   * @param string $plugin_id         [description]
-   * @param array  $plugin_definition [description]
-   * @param Slang  $slang             [description]
+   * @param array  $configuration
+   * @param string $plugin_id
+   * @param array  $plugin_definition
+   * @param Slang  $slang
    */
   public function __construct(array $configuration, $plugin_id, array $plugin_definition, Slang $slang) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);

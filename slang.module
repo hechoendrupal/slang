@@ -15,4 +15,3 @@ function slang_menu(){
 
   return $items;
 }
-

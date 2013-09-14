@@ -5,16 +5,10 @@ slang_settings_form:
   requirements:
     _permission: 'administer settings'
 
-slang_hello_name:
-  pattern: '/slang/hello/{name}'
-  defaults: 
-    _controller: '\Drupal\slang\Controller\DefaultController::helloAction'
-  requirements:
-    _permission: "view content"
-
 slang_phrases:
   pattern: '/slang/{country}'
   defaults:
     _controller: '\Drupal\slang\Controller\DefaultController::slangAction'
+    _title: 'Slang Phrase'
   requirements:
     _permission: 'view content'
