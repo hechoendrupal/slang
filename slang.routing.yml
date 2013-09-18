@@ -1,12 +1,12 @@
 slang_settings_form:
-  pattern: '/admin/config/slang'
+  path: '/admin/config/slang'
   defaults:
     _form: '\Drupal\slang\Form\SlangSettingsForm'
   requirements:
     _permission: 'administer settings'
 
 slang_phrases:
-  pattern: '/slang/{country}'
+  path: '/slang/{country}'
   defaults:
     _controller: '\Drupal\slang\Controller\DefaultController::slangAction'
     _title: 'Slang Phrase'
