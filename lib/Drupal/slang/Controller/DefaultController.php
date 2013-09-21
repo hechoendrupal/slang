@@ -52,12 +52,12 @@ class DefaultController implements ContainerInjectionInterface {
     // TODO:
     $rand = $this->slang->getRandom($country);
 
-    $twig = $this->twig;
-    $template = $twig->loadTemplate('slang::slang.html.twig');
+    $template = $this->twig->loadTemplate('slang::slang.html.twig');
 
     return $template->render(array(
       'phrase' => $rand,
-      'title' => "slang phrase"
+      'title' => "Slang Phrase",
+      'country' => $country
     ));
   }
 

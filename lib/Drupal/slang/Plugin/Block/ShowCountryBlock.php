@@ -65,7 +65,7 @@ class ShowCountryBlock extends BlockBase implements ContainerFactoryPluginInterf
     );
 
     $build['#options'][] = '- Select -';
-    $build['#options'] = $this->slang->getCountrys();
+    $build['#options'] = $this->slang->getCountries();
 
     return $build;
   }
