@@ -3,8 +3,8 @@ parameters:
     costa_rica:
       - "Pura vida"
       - "Mae"
-      - "Chineado"
-      - "Tuani"
+      - "Chineando"
+      - "Tuanis"
     peru:
       - "Bacán"
       - "Piola"
@@ -18,8 +18,8 @@ services:
     class: Drupal\slang\Services\Slang
     arguments:
       - %slang.phrases%
-    calls:
-      - [setCountry, ["costa_rica"]]
+    # calls:
+    #   - [setCountry, ["costa_rica"]]
   slang.twig.title:
     class: Drupal\slang\Plugin\Twig\TwigTitle
     tags:
