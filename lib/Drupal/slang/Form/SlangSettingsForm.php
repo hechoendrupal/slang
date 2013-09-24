@@ -2,13 +2,13 @@
 
 namespace Drupal\slang\Form;
 
-use Drupal\system\SystemConfigFormBase;
+use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Config\Context\ContextInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Component\Utility\Url;
 
-class SlangSettingsForm extends SystemConfigFormBase {
+class SlangSettingsForm extends ConfigFormBase {
 
   protected $configFactory;
 
