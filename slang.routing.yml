@@ -9,6 +9,5 @@ slang_phrases:
   path: '/slang/{country}'
   defaults:
     _controller: '\Drupal\slang\Controller\DefaultController::slangAction'
-    _title: 'Slang Phrase'
   requirements:
     _permission: 'view content'
