@@ -10,11 +10,11 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\slang\Services\Slang;
 
 /**
- * Provides a "Show Countrys" block.
+ * Provides a "Show Countries" block.
  *
  * @Block(
  *   id = "slang_show_country_block",
- *   admin_label = @Translation("Show countrys")
+ *   admin_label = @Translation("Show countries")
  * )
  */
 class ShowCountryBlock extends BlockBase implements ContainerFactoryPluginInterface {
