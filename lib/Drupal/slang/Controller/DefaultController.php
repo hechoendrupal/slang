@@ -48,15 +48,12 @@ class DefaultController implements ContainerInjectionInterface {
    * @return \TwigEnvironment return twig template
    */
   public function slangAction($country) {
-
-    // TODO:
     $rand = $this->slang->getRandom($country);
-
+    drupal_set_title('Slang Phrase');
     $template = $this->twig->loadTemplate('slang::slang.html.twig');
 
     return $template->render(array(
       'phrase' => $rand,
-      'title' => "Slang Phrase",
       'country' => $country
     ));
   }
